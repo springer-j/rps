@@ -1,23 +1,19 @@
 {
     "profiles": [
         {
-            "name": "Jakerson",
-            "balance": 1010,
-            "bet": 500,
+            "name": "Papa Jones",
+            "balance": 100,
+            "bet": 50,
             "wins": 5,
-            "losses": 12,
-            "busts": 0
-        },
-        {
-            "name": "Jonesy",
-            "balance": 500,
-            "bet": 0,
-            "wins": 0,
-            "losses": 0,
-            "busts": 0
+            "losses": 5,
+            "draws": 11,
+            "total_games": 21,
+            "gain": -100,
+            "busts": 1
         }
     ],
     "settings": {
-        "start_bal": 500
+        "start_bal": 100,
+        "throw_pause": false
     }
 }
