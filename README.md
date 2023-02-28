@@ -37,8 +37,11 @@ System:		# Icebox
                     ///  To-Do  ////
 
 [X] Overhaul profile creation and json format
+
 [X] Select profile
+
 [X] Add "draw" outcome
+
 [X] Win/lose functions
     - Adjust player balance
     - Adjust player w/l counts
@@ -46,15 +49,23 @@ System:		# Icebox
     - Check if player bal <= 0
     - Will have to refresh profile values
 [X] Fix determine_winner system 
+
 [X] Game loop/play functions
+
 [X] Integrate balance system
+
 [X] Add "change bet" functionality
     - Can't bet more than in balance
 
+
 [0] Move select_profile from boot to after selecting "Play"
+
 [0] "My stats" display
+
 [0] View Profiles
+
 [0] Remove profiles
+
 [0] A LOT of input validation
 
 ---------------------------------------------------------------------------------
