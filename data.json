@@ -1,6 +1,23 @@
 {
-    "profiles":[],
-    "settings":{
-        "start_bal":500
+    "profiles": [
+        {
+            "name": "Jakerson",
+            "balance": 1010,
+            "bet": 500,
+            "wins": 5,
+            "losses": 12,
+            "busts": 0
+        },
+        {
+            "name": "Jonesy",
+            "balance": 500,
+            "bet": 0,
+            "wins": 0,
+            "losses": 0,
+            "busts": 0
+        }
+    ],
+    "settings": {
+        "start_bal": 500
     }
 }
