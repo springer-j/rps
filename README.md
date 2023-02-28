@@ -6,9 +6,9 @@ Not finished if you were thinking about running anything.
 
               ///  History  ///
 
-[2/26/23] Initial upload, unfinished
+[2/26/23] Initial upload, unfinished, doesn't run
 
-[2/27/23] Added functions, fixed issues.
+[2/27/23] Added functions, fixed issues. Works but buggy.
 
 
 
