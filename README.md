@@ -15,8 +15,9 @@ Not finished if you were thinking about running anything.
 ---------------------------------------------------------------------------------
 
 Title: 		# RPS Project Notes
-Date:  		# 2/25/23 
-System:		# Icebox
+
+Start Date:  		# 2/25/23 
+
 
 ---------------------------------------------------------------------------------
 
