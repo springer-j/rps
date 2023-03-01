@@ -1,19 +1,19 @@
 {
     "profiles": [
         {
-            "name": "Papa Jones",
-            "balance": 100,
-            "bet": 50,
-            "wins": 5,
-            "losses": 5,
-            "draws": 11,
-            "total_games": 21,
-            "gain": -100,
-            "busts": 1
+            "name": "Dylan",
+            "balance": 200,
+            "bet": 10,
+            "wins": 0,
+            "losses": 0,
+            "draws": 0,
+            "total_games": 0,
+            "gain": 0,
+            "busts": 0
         }
     ],
     "settings": {
-        "start_bal": 100,
+        "start_bal": 200,
         "throw_pause": false
     }
 }

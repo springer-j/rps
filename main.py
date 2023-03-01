@@ -82,7 +82,7 @@ def create_profile():
         save_data(data)
         print(f"\n[!] Profile for {profile_name} saved.")
         input("[!] Press enter to continue.")
-        return 
+        return profile
     elif conf.lower() == 'n':
         print("\n[X] Profile skipped.")
         input("[!] Press enter to continue.")
@@ -90,7 +90,6 @@ def create_profile():
 
 
 def select_profile():
-    #! Going to need some exception handling on this one
     data = load_data()
     profile_list = data["profiles"]
     if not profile_list:
@@ -101,9 +100,7 @@ def select_profile():
         if conf.lower() != "y" and conf.lower() != "n":
             conf = input("\n[?] Create one now? (Y/N) ")
         if conf.lower() == 'y':
-
-            create_profile()
-            select_profile()
+            return create_profile()
         elif conf.lower() == 'n':
             return 
     clear()
@@ -122,7 +119,6 @@ def select_profile():
             pass
 
 
-
 def refresh_profile(player):
     # Find "player" in JSON, return player dict
     # Used when changing JSON values during runtime
@@ -130,9 +126,10 @@ def refresh_profile(player):
     for profile in data["profiles"]:
         if profile["name"] == player["name"]:
             return profile
+    return select_profile()
     
 
-def change_bet(player):
+def change_bet(player): 
     data = load_data()
     for prof in data["profiles"]:
         if prof["name"] == player["name"]:
@@ -141,10 +138,16 @@ def change_bet(player):
     print("[!] Changing bet\n")
     print("[!] Current bet: $" + str(profile['bet']))
     print("[!] Current balance: $" + str(profile['balance']))
-    new_bet = int(input("\n[?] New bet: $"))
-    while new_bet > profile['balance']:
-        print("\n[X] Too broke for that.")
-        new_bet = int(input("\n[?] New bet: $"))
+    while True:
+        try:
+            new_bet = int(input("\n[?] New bet: $")) 
+            while new_bet > profile['balance']:
+                print("\n[X] Too broke for that.")
+                new_bet = int(input("\n[?] New bet: $"))
+                break
+            break
+        except ValueError:
+            print("[X] Bet must be a whole number")
     profile["bet"] = new_bet
     save_data(data)
 
@@ -239,13 +242,23 @@ def cpu_pick():
 
 
 def player_pick():
+    options = [1,2,3]
     clear()
     print("[!] Select a move:\n")
     print("[1]. Rock")
     print("[2]. Paper")
     print("[3]. Scissors\n")
-    select = input("[?] ")
-    return int(select)
+    while True:
+        try:
+            select = int(input("[?] "))
+            while select not in options:
+                print("[X] Selection must be a number between 1 and 3.")
+                select = int(input("[?] "))
+            break
+        except ValueError:
+            print("[X] Error: Bad value")
+            print("[X] Selection must be a number between 1 and 3.")
+    return select
 
 
 def bust(player):
@@ -263,7 +276,6 @@ def bust(player):
     print("    will go up by one, as a reminder to your poor money")
     print("    management skills. ")
     input("\n[~] Press enter to continue. ")
-    
 
 
 def play_menu(player): 
@@ -372,15 +384,20 @@ def play(player):
 #--------------------------------------------------------
 #? Settings
 
-def change_start_bal():
+def change_start_bal(): #!
     data = load_data()
     current_bal = data["settings"]["start_bal"]
     clear()
     print("[!] Changing starting balance.")
     print("[!] Current value: $" + str(current_bal))
-    print("[!] Enter the new balance:")
-    new_bal = input("\n[?] $")
-    data["settings"]["start_bal"] = int(new_bal)
+    print()
+    while True:
+        try:
+            new_bal = int(input("[?] New value: $"))
+            break
+        except ValueError:
+            print("[X] Value must be a whole number.")
+    data["settings"]["start_bal"] = new_bal
     save_data(data)
     print("\n[!] Settings updated")
     input("[~] Press enter to continue ")
@@ -440,7 +457,9 @@ def settings_menu():
 def main():
     player = select_profile()
     while True:
+        player = refresh_profile(player)
         clear()
+        print(player)
         print("\t#  Rock, Paper, Scissors  #\n")
         print("\n[!] Profile: " + player["name"] + '\n')
         print("[1]. Play")
