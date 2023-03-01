@@ -11,3 +11,6 @@ Python 3.10.9
 [2/28/23] Added a bunch of stuff. Pretty much entirely functional, aside from
           a few critical errors here and there. Beginning work on data validation
           and bugs. 
+
+[3/1/23] Added input validation and smoothed out the big critical failure points.
+         Probably as much as I'm going to do with this project. 
